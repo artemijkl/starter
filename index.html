@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Правила заправки</title>
+    <title>Бак+Бонус</title>
     <style>
         * {
             margin: 0;
@@ -12,18 +12,26 @@
         }
 
         :root {
-            /* Светлая тема по умолчанию */
-            --bg: #f3fbff;
-            --bg-blue: #0f9fe2;
-            --bg-dark: #0f3b5a;
-            --text-primary: #0f3b5a;
-            --text-secondary: #8a9ba7;
-            --hold: #cbd2d5;
-            --separator: #d6e0e4;
-            --blue-light: #e0f5ff;
+            /* Обновленная цветовая палитра */
+            --bg: #f5f5f5;
+            --bg-blue: #00a6e8;
+            --bg-dark: #1a1a1a;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --hold: #d1d1d1;
+            --separator: #e0e0e0;
+            --blue-light: #e6f7ff;
             --card-bg: #ffffff;
-            --accent: #0f9fe2;
-            --shadow: rgba(15, 59, 90, 0.1);
+            --accent: #00a6e8;
+            --shadow: rgba(0, 0, 0, 0.08);
+
+            /* Дополнительные цвета из нового дизайна */
+            --blue-vibrant: #00a6e8;
+            --blue-gradient-start: #00b4ff;
+            --blue-gradient-end: #0099dd;
+            --text-on-blue: #ffffff;
+            --border-light: #e5e5e5;
+            --phone-frame: #000000;
         }
 
         body {
@@ -73,6 +81,7 @@
         .logo img {
             width: 28px;
             height: 28px;
+            margin-bottom: -5px;
         }
 
         .nav-links {
@@ -153,7 +162,7 @@
                     to bottom,
                     rgba(248, 249, 250, 0.7) 0%,
                     rgba(248, 249, 250, 1) 100%
-            ), url('./img/background.jpg') center/cover;
+            ), url('./img/background.png') center/cover;
         }
 
         .hero::before {
@@ -416,7 +425,7 @@
             left: 30px;
             width: 60px;
             height: 60px;
-            background: var(--text-primary);
+            background: var(--bg-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -738,7 +747,7 @@
     <div class="nav-container">
         <div class="logo">
             <img src="./img/logo.png" alt="Logo">
-            Правила заправки
+            Бак+Бонус
         </div>
         <ul class="nav-links">
             <li><a href="#features">Возможности</a></li>
@@ -892,7 +901,7 @@
         <div class="footer-about">
             <div class="footer-logo">
                 <img src="./img/logo.png" alt="Logo">
-                <span>Правила заправки</span>
+                <span>Бак+Бонус</span>
             </div>
             <p>Программа лояльности для автомобилистов.<br/>Копите бонусы и экономьте на каждой поездке.</p>
         </div>
@@ -908,12 +917,12 @@
             <h4>Контакты</h4>
             <ul>
                 <li><a href="./privacy.html">Политика конфиденциальности</a></li>
-                <li><a href="mailto:vlad.goryuchkin@yandex.ru">vlad.goryuchkin@yandex.ru</a></li>
+                <li><a href="mailto:artemij.kluchnikov@yandex.ru">artemij.kluchnikov@yandex.ru</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 Правила заправки. Все права защищены.</p>
+        <p>&copy; 2025 Бак+Бонус. Все права защищены.</p>
     </div>
 </footer>
 
