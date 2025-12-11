@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бак+Бонус</title>
+    <title>Бак+Бонус - Умная программа лояльности для автомобилистов</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,6 @@
         }
 
         :root {
-            /* Обновленная цветовая палитра */
             --bg: #f5f5f5;
             --bg-blue: #00a6e8;
             --bg-dark: #1a1a1a;
@@ -24,8 +23,6 @@
             --card-bg: #ffffff;
             --accent: #00a6e8;
             --shadow: rgba(0, 0, 0, 0.08);
-
-            /* Дополнительные цвета из нового дизайна */
             --blue-vibrant: #00a6e8;
             --blue-gradient-start: #00b4ff;
             --blue-gradient-end: #0099dd;
@@ -56,11 +53,6 @@
             border-bottom: 1px solid var(--separator);
         }
 
-        nav.scrolled {
-            padding: 1rem 0;
-            box-shadow: 0 5px 30px var(--shadow);
-        }
-
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -76,12 +68,14 @@
             color: var(--accent);
             letter-spacing: -0.5px;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .logo img {
             width: 28px;
             height: 28px;
-            margin-bottom: -5px;
         }
 
         .nav-links {
@@ -100,36 +94,6 @@
 
         .nav-links a:hover {
             color: var(--accent);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .theme-toggle {
-            background: var(--hold);
-            border: none;
-            width: 50px;
-            height: 26px;
-            border-radius: 50px;
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            padding: 0 3px;
-            transition: background 0.3s ease;
-        }
-
-        .theme-toggle::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            transition: transform 0.3s ease;
         }
 
         .cta-button {
@@ -161,7 +125,7 @@
             background: linear-gradient(
                     to bottom,
                     rgba(248, 249, 250, 0.7) 0%,
-                    rgba(248, 249, 250, 1) 100%
+                    #f5f5f5 100%
             ), url('./img/background.png') center/cover;
         }
 
@@ -213,47 +177,35 @@
             opacity: 0.9;
         }
 
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
         .hero-buttons {
             display: flex;
             gap: 1.5rem;
             flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1.05rem;
-            display: inline-block;
-        }
-
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(15, 159, 226, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--accent);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid var(--accent);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            font-size: 1.05rem;
-            display: inline-block;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent);
-            transform: translateY(-3px);
         }
 
         .hero-image {
@@ -269,19 +221,14 @@
         }
 
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
-        /* Features Section */
-        .features {
+        /* Benefits Section - перемещена вверх */
+        .benefits {
             padding: 8rem 2rem;
             background: var(--bg);
-            position: relative;
         }
 
         .section-header {
@@ -304,105 +251,101 @@
             margin: 0 auto;
         }
 
+        .benefits-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .benefit-card {
+            display: flex;
+            gap: 2rem;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--separator);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            align-items: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(15, 159, 226, 0.15);
+            border-color: var(--bg-blue);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .benefit-text h4 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .benefit-text p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--accent), var(--bg-dark));
+            position: relative;
+        }
+
+        .features .section-header h2,
+        .features .section-header p {
+            color: white;
+        }
+
         .features-grid {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* ровно 3 колонки */
-            gap: 2.5rem;
-            align-items: start;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
-
-        /* Делаем карточку растягивающимся flex-контейнером, чтобы содержимое выстраивалось корректно,
-           а все карточки в строке имели одинаковую высоту */
-        .features-grid > .feature-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;          /* позволит карточкам растягиваться по высоте ячейки */
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
-
-        /* Внутри карточки уверяем, что основной текст занимает оставшееся пространство,
-           чтобы заголовок и кнопки располагались корректно внизу (если необходимо) */
-        .features-grid > .feature-card > p {
-            margin-top: 0.6rem;
-            /* при необходимости: flex-grow для основного контента */
-        }
-
-        /* Обеспечим, что грид-ячейки сами растягиваются, чтобы карточки могли занять одинаковую высоту */
-        .features-grid > .feature-card {
-            align-self: stretch;
-        }
-
-        /* 1 элемент в последней строке: растянуть на все 3 колонки */
-        .features-grid.stretch-last-1 > .feature-card:nth-last-child(1) {
-            grid-column: 1 / span 3;
-        }
-
-        /* 2 элемента в последней строке: первый занимает 1 колонку, второй растягивается на 2 колонки */
-        .features-grid.stretch-last-2 > .feature-card:nth-last-child(2) {
-            grid-column: 1 / span 1;
-        }
-        .features-grid.stretch-last-2 > .feature-card:nth-last-child(1) {
-            grid-column: 2 / span 2;
-        }
-
-        /* === Адаптив === */
-        @media (max-width: 1100px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            /* при 2 колонках: 1 элемент в последней строке растягиваем на 2 колонки */
-            .features-grid.stretch-last-1 > .feature-card:nth-last-child(1) {
-                grid-column: 1 / span 2;
-            }
-            /* при 2 колонках stretch-last-2 — два элемента занимают по одной колонке (обычное поведение) */
-        }
-        @media (max-width: 600px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .features-grid > .feature-card { grid-column: 1 / span 1; }
-        }
-
 
         .feature-card {
-            background: var(--card-bg);
-            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 10px 40px var(--shadow);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--separator);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, var(--accent), var(--bg-dark));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .feature-card:hover {
+            background: rgba(255, 255, 255, 0.15);
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px var(--shadow);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--accent), var(--bg-blue));
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -413,21 +356,22 @@
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
+            font-size: 1.4rem;
+            color: white;
             margin-bottom: 1rem;
             font-weight: 700;
         }
 
         .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.8;
+            color: white;
+            opacity: 0.85;
+            line-height: 1.7;
         }
 
         /* Steps Section */
         .steps {
             padding: 8rem 2rem;
-            background: linear-gradient(135deg, var(--accent), var(--bg-dark));
+            background: var(--bg);
             position: relative;
         }
 
@@ -436,33 +380,15 @@
             margin: 0 auto;
         }
 
-        .steps-header h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-            text-align: center;
-            letter-spacing: -1px;
-        }
-
-        .steps-header p {
-            font-size: 1.2rem;
-            color: white;
-            opacity: 0.8;
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
         }
 
         .step-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--separator);
             padding: 3rem;
             border-radius: 20px;
             transition: all 0.3s ease;
@@ -470,8 +396,8 @@
         }
 
         .step-card:hover {
-            background: rgba(255, 255, 255, 0.15);
             transform: translateY(-10px);
+            box-shadow: 0 20px 60px var(--shadow);
         }
 
         .step-number {
@@ -492,83 +418,27 @@
         }
 
         .step-card h3 {
-            color: white;
-            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             margin-top: 1rem;
             font-weight: 700;
         }
 
         .step-card p {
-            color: white;
-            opacity: 0.8;
-            line-height: 1.8;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            padding: 8rem 2rem;
-            background: var(--bg);
-        }
-
-        .benefits-wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .benefits-staggered {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        .benefit-card {
-            display: flex;
-            gap: 2rem;
-            padding: 2.5rem;
-            background: var(--card-bg);
-            border: 1px solid var(--separator);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            align-items: center;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(15, 159, 226, 0.15);
-            border-color: var(--bg-blue);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            align-items: start;
-        }
-
-        .benefit-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--bg-blue);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .benefit-text h4 {
-            color: var(--text-primary);
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .benefit-text p {
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        .author-info h5 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         /* CTA Section */
@@ -624,16 +494,28 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 3rem;
             margin-bottom: 3rem;
         }
 
-        .footer-about h3 {
-            color: var(--accent);
-            font-size: 1.5rem;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .footer-logo span {
+            font-size: 1.5rem;
             font-weight: 700;
+            color: var(--bg-blue);
         }
 
         .footer-about p {
@@ -671,6 +553,27 @@
             color: var(--text-secondary);
         }
 
+        /* Utilities */
+        .scale {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .scale:hover {
+            transform: scale(1.05);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-content {
@@ -687,8 +590,20 @@
                 font-size: 3rem;
             }
 
+            .hero-stats {
+                justify-content: center;
+            }
+
             .hero-buttons {
                 justify-content: center;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-container {
@@ -710,14 +625,13 @@
             }
 
             .section-header h2,
-            .steps-header h2,
-            .benefits-content h2,
             .cta-content h2 {
                 font-size: 2rem;
             }
 
             .features-grid,
-            .steps-grid {
+            .steps-grid,
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -725,71 +639,10 @@
                 grid-template-columns: 1fr;
             }
 
-            .btn-primary,
-            .btn-secondary {
+            .btn-primary {
                 width: 100%;
                 text-align: center;
             }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Добавить/обновить в секции Footer */
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo img {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-        }
-
-        .footer-logo span {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--bg-blue);
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-logo {
-                justify-content: center;
-            }
-        }
-
-        .scale {
-            cursor: pointer;
-            transition: 1s; /* Время эффекта */
-        }
-        .scale:hover {
-            transform: scale(1.1); /* Увеличиваем масштаб */
         }
     </style>
 </head>
@@ -799,15 +652,15 @@
     <div class="nav-container">
         <div class="logo">
             <img src="./img/logo.png" alt="Logo">
-            Бак+Бонус
+            <span>Бак+Бонус</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#features">Возможности</a></li>
             <li><a href="#steps">Как начать</a></li>
+            <li><a href="#features">Возможности</a></li>
             <li><a href="#benefits">Преимущества</a></li>
         </ul>
         <div class="nav-actions">
-            <a href="#cta" class="cta-button">Начать сейчас</a>
+            <a href="#cta" class="cta-button">Скачать приложение</a>
         </div>
     </div>
 </nav>
@@ -817,50 +670,33 @@
     <div class="hero-content">
         <div class="hero-text">
             <h1>
-                Управляйте своим <span class="highlight">автомобилем</span> на новом уровне
+                Каждая <span class="highlight">поездка</span> приносит выгоду
             </h1>
             <p>
-                Современное решение для контроля расходов, оптимизации маршрутов и максимальной экономии на каждой поездке.
+                Цифровая карта лояльности для автомобилистов. Накапливайте бонусы при каждой заправке, получайте персональные скидки и экономьте ежемесячно.
             </p>
+            <!--<div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Партнёров</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15%</div>
+                    <div class="stat-label">Средняя экономия</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Пользователей</div>
+                </div>
+            </div>-->
             <div class="hero-buttons">
-
                 <a href="https://apps.apple.com/ru/app/id6754984915">
-                    <img src="./img/store.svg" alt="" class="scale">
+                    <img src="./img/store.svg" alt="Скачать в App Store" class="scale">
                 </a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="./img/card.png" alt="card-image"/>
-        </div>
-    </div>
-</section>
-
-<!-- Features Section -->
-<section class="features" id="features">
-    <div class="section-header fade-in">
-        <h2>Всё необходимое в одном приложении</h2>
-        <p>Мощные инструменты для эффективного управления вашим автомобилем</p>
-    </div>
-    <div class="features-grid">
-        <div class="feature-card fade-in">
-            <div class="feature-icon">💳</div>
-            <h3>Виртуальная карта</h3>
-            <p>Мгновенный выпуск цифровой карты лояльности с доступом ко всем преимуществам программы прямо в вашем смартфоне.</p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-icon">⚡</div>
-            <h3>Персональные акции</h3>
-            <p>Эксклюзивные предложения и скидки, подобранные специально для вас на основе ваших предпочтений.</p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-icon">📊</div>
-            <h3>Аналитика расходов</h3>
-            <p>Детальная статистика по всем операциям с удобными графиками и отчётами для контроля бюджета.</p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-icon">🔒</div>
-            <h3>Защита данных</h3>
-            <p>Современные технологии шифрования и многоуровневая система безопасности для защиты вашей информации.</p>
+            <img src="./img/card.png" alt="Бак+Бонус приложение"/>
         </div>
     </div>
 </section>
@@ -868,20 +704,20 @@
 <!-- Steps Section -->
 <section class="steps" id="steps">
     <div class="steps-container">
-        <div class="steps-header fade-in">
-            <h2>Начните в три простых шага</h2>
+        <div class="section-header fade-in">
+            <h2>Начните экономить за 3 шага</h2>
             <p>Присоединиться к программе проще, чем кажется</p>
         </div>
         <div class="steps-grid">
             <div class="step-card fade-in">
                 <div class="step-number">1</div>
-                <h3>Скачайте приложение</h3>
-                <p>Установите наше приложение из App Store. Это займёт не более минуты.</p>
+                <h3>Установите приложение</h3>
+                <p>Скачайте наше бесплатное приложение из App Store. Установка займёт не более минуты, и вы сразу получите доступ ко всем функциям.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">2</div>
                 <h3>Пройдите регистрацию</h3>
-                <p>Получите виртуальную карту лояльности моментально.</p>
+                <p>Быстрая регистрация по номеру телефона. Виртуальная карта лояльности будет выпущена автоматически и мгновенно появится в приложении.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">3</div>
@@ -892,44 +728,84 @@
     </div>
 </section>
 
+<!-- Features Section -->
+<section class="features" id="features">
+    <div class="section-header fade-in">
+        <h2>Всё необходимое в одном приложении</h2>
+        <p>Современные инструменты для максимальной выгоды</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card fade-in">
+            <div class="feature-icon">💳</div>
+            <h3>Цифровая карта</h3>
+            <p>Виртуальная карта лояльности всегда под рукой в вашем смартфоне. Никаких пластиковых карт — всё в телефоне.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">📊</div>
+            <h3>Аналитика расходов</h3>
+            <p>Детальная статистика по всем операциям с наглядными графиками и отчётами для контроля бюджета на автомобиль.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">🔔</div>
+            <h3>Умные уведомления</h3>
+            <p>Получайте push-уведомления о новых акциях поблизости, накоплении бонусов и выгодных предложениях партнёров.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">🔒</div>
+            <h3>Защита данных</h3>
+            <p>Современные технологии шифрования и многоуровневая система безопасности для защиты вашей информации и средств.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">🎁</div>
+            <h3>Реферальная программа</h3>
+            <p>Приглашайте друзей и получайте дополнительные бонусы за каждого нового пользователя программы лояльности.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">📱</div>
+            <h3>Простой интерфейс</h3>
+            <p>Интуитивно понятное приложение, которое не требует обучения. Всё работает быстро и удобно с первого запуска.</p>
+        </div>
+    </div>
+</section>
+
 <!-- Benefits Section -->
 <section class="benefits" id="benefits">
     <div class="benefits-wrapper">
         <div class="section-header fade-in">
-            <h2>Почему выбирают нас</h2>
-            <p>Преимущества, которые делают нас лучшими</p>
+            <h2>Ваши преимущества с нами</h2>
+            <p>Реальная экономия на каждой заправке</p>
         </div>
 
         <div class="benefits-grid">
             <div class="benefit-card fade-in">
                 <div class="benefit-icon">💰</div>
                 <div class="benefit-text">
-                    <h4>Реальная экономия</h4>
-                    <p>Средняя экономия наших пользователей составляет до 15% на топливе и автомобильных услугах ежемесячно.</p>
-                </div>
-            </div>
-
-            <div class="benefit-card benefit-right fade-in">
-                <div class="benefit-icon">⏱️</div>
-                <div class="benefit-text">
-                    <h4>Экономия времени</h4>
-                    <p>Находите лучшие предложения поблизости за секунды, планируйте маршруты с учётом оптимальных остановок.</p>
+                    <h4>Экономия до 15%</h4>
+                    <p>Наши пользователи экономят в среднем до 15% на топливе и автомобильных услугах каждый месяц благодаря накопительной системе бонусов.</p>
                 </div>
             </div>
 
             <div class="benefit-card fade-in">
-                <div class="benefit-icon">🏆</div>
+                <div class="benefit-icon">⚡</div>
                 <div class="benefit-text">
-                    <h4>Премиум партнёры</h4>
-                    <p>Более 5000 проверенных партнёров по всей стране с гарантированным качеством обслуживания.</p>
+                    <h4>Мгновенные бонусы</h4>
+                    <p>Бонусы начисляются автоматически после каждой покупки. Используйте их сразу при следующей заправке без ожидания.</p>
                 </div>
             </div>
 
-            <div class="benefit-card benefit-right fade-in">
-                <div class="benefit-icon">📱</div>
+            <div class="benefit-card fade-in">
+                <div class="benefit-icon">🎯</div>
                 <div class="benefit-text">
-                    <h4>Простота использования</h4>
-                    <p>Интуитивно понятный интерфейс, который не требует обучения. Всё необходимое всегда под рукой.</p>
+                    <h4>Персональные предложения</h4>
+                    <p>Система анализирует ваши привычки и на основе этого предлагает персональные, эксклюзивные акции именно для вас в удобных и подходящих местах.</p>
+                </div>
+            </div>
+
+            <div class="benefit-card fade-in">
+                <div class="benefit-icon">🗺️</div>
+                <div class="benefit-text">
+                    <h4>Широкая сеть</h4>
+                    <p>Крупная сеть проверенных партнёров по всей стране. Найдите выгодные предложения в любом городе вашего маршрута.</p>
                 </div>
             </div>
         </div>
